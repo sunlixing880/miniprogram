@@ -1,0 +1,56 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.0.4",
+	"appid": "wxdd99be32c10435f4",
+	"projectname": "Test",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "自定义预览",
+					"pathName": "pages/index/index",
+					"query": "name=can",
+					"scene": "1037",
+					"referrerInfo": {
+						"appId": "wxbd687630cd02ce1d",
+						"extraData": "{     \"appid\": \"wx426a3015555a46be\",     \"contract_code\": \"122\",     \"contract_display_account\": \"张三\",     \"mch_id\": \"1223816102\",     \"notify_url\": \"https: //www.qq.com/test/papay\",     \"plan_id\": \"106\",     \"request_serial\": \"123\",     \"timestamp\": 1414488825,     \"sign\": \"FF1A406564EE701064450CA2149E2514\" }"
+					}
+				}
+			]
+		}
+	}
+}
