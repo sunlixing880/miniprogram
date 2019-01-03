@@ -7,43 +7,56 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    phoneNumber: '',
+    hasPhoneNumber: false,
+    canIUseUserInfo: wx.canIUse('button.open-type.getUserInfo'),
+    canIUsePhoneNumber: wx.canIUse('button.open-type.getPhoneNumber')
   },
   //事件处理函数
   bindViewTap: function() {
-    // wx.navigateTo({
-    //   url: '../logs/logs'
-    // })
     wx.navigateToMiniProgram({
       appId: 'wxbd687630cd02ce1d',
       path: 'pages/index/index',
-      envVersion:'develop',
+      // envVersion:'release',
       extraData: {
-        appid: 'wx426a3015555a46be',
-        contract_code: '122',
-        contract_display_account: '张三',
-        mch_id: '1223816102',
-        notify_url: 'https://www.qq.com/test/papay',
-        plan_id: '106',
-        request_serial: '123',
-        timestamp: 1414488825,
-        sign: 'FF1A406564EE701064450CA2149E2514'
+        appid: 'wxd59a85a105f1c2fc',
+        contract_code: '37ff4f8d35e54f81bbdd69c0738c2269',
+        contract_display_account: '小野售',
+        mch_id: '1311526401',
+        notify_url: 'https://mobl-test.chinaums.com/wx/withhold/sign',
+        plan_id: '123749',
+        request_serial: '42',
+        sub_appid: 'wx9c5cdeebd0cf42d7',
+        sub_mch_id: '1517528761',
+        timestamp: 1546326940,
+        sign: '4496871033F0BDC885851588AE7FC2F4'
       },
       success(res) {
-        // log("success")
+        
       },
       fail(res) {
         // log("fail")
       }
     })
   },
+  
   onLoad: function () {
+    wx.login({
+      success(res) {
+        if (res.code) {
+          console.log("登陆成功，res.code = "+res.code)
+        }
+        else {
+          console.log("登录失败！"+res.errMsg)
+        }
+      }
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUseUserInfo){
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -72,5 +85,11 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  getPhoneNumber: function(e) {
+    console.log(e)
+    console.log('encryptedData = ' + e.detail.encryptedData)
+    console.log('errMsg = ' + e.detail.errMsg)
+    console.log('iv = ' + e.detail.iv)
   }
 })

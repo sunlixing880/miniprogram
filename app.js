@@ -35,5 +35,37 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+  onShow: function (res) {
+    if (res.scene === 1038) { // 场景值1038：从被打开的小程序返回
+      const { appId, extraData } = res.referrerInfo
+      if (appId == 'wxbd687630cd02ce1d') { // appId为wxbd687630cd02ce1d：从签约小程序跳转回来
+        if (typeof extraData == 'undefined') {
+          // TODO
+          // 客户端小程序不确定签约结果，需要向商户侧后台请求确定签约结果
+          wx.showToast({
+            title: '不确定签约结果，需要后台查询',
+          })
+          return;
+        }
+        if (extraData.return_code == 'SUCCESS') {
+          // TODO
+          // 客户端小程序签约成功，需要向商户侧后台请求确认签约结果
+          var contract_id = extraData.contract_id
+          wx.showModal({
+            title: '签约协议号',
+            content: contract_id,
+          })
+          return;
+        } else {
+          // TODO
+          // 签约失败
+          wx.showToast({
+            title: '签约失败',
+          })
+          return;
+        }
+      }
+    }
   }
 })
