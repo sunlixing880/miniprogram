@@ -20,16 +20,16 @@ Page({
       // envVersion:'release',
       extraData: {
         appid: 'wxd59a85a105f1c2fc',
-        contract_code: '37ff4f8d35e54f81bbdd69c0738c2269',
+        contract_code: '6cb5f34fb7f24ce0a957623a9ead8536',
         contract_display_account: '小野售',
         mch_id: '1311526401',
-        notify_url: 'https://mobl-test.chinaums.com/wx/withhold/sign',
+        notify_url: 'https://mobl-test.chinaums.com/ybl-front/applet/notify/contract/sign',
         plan_id: '123749',
-        request_serial: '42',
+        request_serial: '90',
         sub_appid: 'wx9c5cdeebd0cf42d7',
         sub_mch_id: '1517528761',
-        timestamp: 1546326940,
-        sign: '4496871033F0BDC885851588AE7FC2F4'
+        timestamp: 1546596673,
+        sign: '8042A6066F44FCD76F66B0CF9E21FA44'
       },
       success(res) {
         
@@ -44,7 +44,7 @@ Page({
     wx.login({
       success(res) {
         if (res.code) {
-          console.log("登陆成功，res.code = "+res.code)
+          console.log("登录成功，res.code = "+res.code)
         }
         else {
           console.log("登录失败！"+res.errMsg)
